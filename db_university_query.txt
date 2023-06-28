@@ -1,0 +1,98 @@
+SQL QUERY
+
+
+Esercizio 1) :
+
+select count(*)
+from students
+where YEAR(date_of_birth)=1990;
+
+*****************************************************************************************************
+Esercizio 2) :
+
+select *
+from courses
+where cfu > 10;
+
+*****************************************************************************************************
+Esercizio 3) :
+
+METODO 1)
+select *
+from students
+where (CURDATE() - date_of_birth) > 30;
+
+METODO 2)
+select *
+from students
+where DATE_SUB(CURDATE(), INTERVAL 30 YEAR) > date_of_birth;
+
+*****************************************************************************************************
+Esercizio 4) :
+
+select *
+from courses
+where period = 'I semestre' AND year = 1;
+
+*****************************************************************************************************
+Esercizio 5) : 
+
+select *
+from exams
+where hour > '14:00:00' AND date = '2020-06-20';
+
+*****************************************************************************************************
+Esercizio 6) :
+
+METODO 1)
+select *
+from degrees
+where level = 'magistrale';
+
+METODO 2) 
+select *
+from degrees
+where level <> 'triennale';
+
+*****************************************************************************************************
+Esercizio 7) :
+
+select count(id)
+from departments;
+
+*****************************************************************************************************
+Esercizio 8) :
+
+select *
+from teachers
+where phone is null;
+
+
+*****************************************************************************************************
+Esercizio 9) :
+
+select count(*), YEAR(enrolment_date) as year_enrol
+from students
+group by year_enrol;
+
+*****************************************************************************************************
+Esercizio 10) :
+
+select count(*) as numb, office_address
+from teachers
+group by office_address
+order by numb DESC;
+
+*****************************************************************************************************
+Esercizio 11) :
+
+select avg(vote) as media_voti, exam_id
+from exam_student
+group by exam_id
+
+*****************************************************************************************************
+Esercizio 12) :
+
+select count(*), degree_id
+from courses
+group by degree_id;
